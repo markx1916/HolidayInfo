@@ -1,20 +1,4 @@
-holiday 使用方法：
+节假日窗口库
 
-创建一个时间窗，以 HH:MM 格式处理，如下为实例：
+为上线窗口，值班表，考勤表等提供可用的golang sdk。 
 
-layout := "15:04"
-begin, _ := time.Parse(layout, "20:00") //定义一个小时:分钟维度的time
-end, _ := time.Parse(layout, "23:59")
-window, _ := holiday.NewHolidayClientWithTimeWindow(begin, end)
-onLine := time.Now()
-result , err := window.BeforeHolidayWindow(onLine)  //返回(bool err )， true为节假日之前一天的指定时间窗内，或者节假日不允许上线。其他情况返回false
-
-
-
-
-//判断是否为节假日，参数为Time格式， 工作日返回true，节假日返回false！
-holiday.HolidayInfo(time.Now()) 
-
-
-// 判断当天是否为节假日
-holiday.NowDayInfo()  
